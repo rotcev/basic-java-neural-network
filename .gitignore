@@ -1,0 +1,12 @@
+.idea/*.*
+./idea/copyright/*.*
+.classpath
+.project
+*.iml
+*.ipr
+*.iws
+*.xml
+*~
+bin/
+out/
+multilayer network project.iml
