@@ -122,9 +122,14 @@ public class LayerTestUnit {
         for (int i = 0; i < input.length; i++) {
             float[] result = joinedLayer.forward(input[i]);
             System.out.println("\t"+Arrays.toString(input[i]) + " is thought to be " + Arrays.toString(result)+", should be "+ideal[i]);
-//            System.out.println(result[i]+", "+ideal[i]);
             Assert.assertEquals(result[0], ideal[i], 0.05);
-//            Assert.assertEquals(Arrays.toString(result), "["+ideal[i]+"]");
         }
+
+
+        float[] testZeroInput = new float[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+        float testIdeal = 0;
+        float result = joinedLayer.forward(testZeroInput)[0];
+        System.out.println("\n"+Arrays.toString(testZeroInput) + " is thought to be " + result+", should be "+testIdeal);
+        Assert.assertEquals(result, testIdeal, 0.05);
     }
 }
